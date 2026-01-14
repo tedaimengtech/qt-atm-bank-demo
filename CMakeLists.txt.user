@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 17.0.2, 2026-01-14T10:07:01. -->
+<!-- Written by QtCreator 17.0.2, 2026-01-14T12:11:22. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -249,7 +249,7 @@
      <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
      <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
      <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-     <value type="QString" key="RunConfiguration.WorkingDirectory.default">/Users/tedaimeng/qtproject/atm-bank/build/Qt_6_10_0_for_macOS-Debug/libbcrypt</value>
+     <value type="QString" key="RunConfiguration.WorkingDirectory.default">/Users/tedaimeng/qtproject/atm-bank/build/Qt_6_10_0_for_macOS-Debug/include/libbcrypt</value>
     </valuemap>
     <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">2</value>
    </valuemap>
@@ -443,7 +443,7 @@
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/Users/tedaimeng/qtproject/atm-bank/build/Qt_6_10_0_for_macOS-Debug/libbcrypt</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/Users/tedaimeng/qtproject/atm-bank/build/Qt_6_10_0_for_macOS-Debug/include/libbcrypt</value>
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">2</value>
   </valuemap>

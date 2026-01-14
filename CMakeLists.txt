@@ -79,10 +79,6 @@ install(TARGETS atm-bank
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
-
-if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(atm-bank)
-endif()
 # 添加bcrypt库
 add_subdirectory(include/libbcrypt)
 if(TARGET bcrypt)
@@ -93,4 +89,31 @@ elseif(TARGET libbcrypt)
     message(STATUS "Linking with libbcrypt target")
 else()
     message(WARNING "No bcrypt target found in libbcrypt directory")
+endif()
+
+# macOS 构建
+if(APPLE)
+    set_target_properties(atm-bank PROPERTIES
+            MACOSX_BUNDLE TRUE
+            MACOSX_BUNDLE_BUNDLE_NAME "TDM ATM"
+            MACOSX_BUNDLE_BUNDLE_VERSION "1.0.0"
+            MACOSX_BUNDLE_SHORT_VERSION_STRING "1.0"
+            MACOSX_BUNDLE_GUI_IDENTIFIER "cn.tedaimeng.apple.demo.atmbank"
+            MACOSX_BUNDLE_ICON_FILE "app.icns"
+    )
+    # 确保图标文件被复制到应用包中
+    if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/app.icns")
+        # 复制图标文件到应用包
+        add_custom_command(TARGET atm-bank POST_BUILD
+                COMMAND ${CMAKE_COMMAND} -E copy
+                "${CMAKE_CURRENT_SOURCE_DIR}/app.icns"
+                "$<TARGET_FILE_DIR:atm-bank>/../Resources/app.icns"
+                COMMENT "Copying app icon to bundle"
+        )
+    else()
+        message(WARNING "app.icns not found in ${CMAKE_CURRENT_SOURCE_DIR}")
+    endif()
+endif()
+if(QT_VERSION_MAJOR EQUAL 6)
+    qt_finalize_executable(atm-bank)
 endif()
